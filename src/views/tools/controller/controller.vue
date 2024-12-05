@@ -1,47 +1,59 @@
 <template>
     <div class="tools">
-        <div class="tool" @click="settings">Settings</div>
-        <div class="tool" @click="minimize">Minimize</div>
-        <div class="tool" @click="close">Close</div>
-        
+        <div class="tool" @click="share">
+            <img src="@assets/share.png" />
+        </div>
+        <div class="tool" @click="min">
+            <img src="@assets/min.png" />
+        </div>
+        <div class="tool" @click="close">
+            <img src="@assets/close.png" />
+        </div>
     </div>
 </template>
 
 <script setup>
-const minimize = () => {
-    console.log('Minimize clicked');
-};
-
-const close = () => {
-    console.log('Close clicked');
-};
-
-const settings = () => {
-    console.log('Settings clicked');
-};
+import { getCurrentWindow } from "@tauri-apps/api/window";
+async function share() {
+    
+}
+async function close(){
+  await getCurrentWindow().close()
+}
+async function min(){
+  await getCurrentWindow().minimize();
+}
 </script>
 
 <style scoped>
 .tools {
+    width: 120px;
+    height: 30px;
     display: flex;
     justify-content: space-between;
     /* Distribute the items evenly */
     align-items: center;
     /* Vertically center the items */
-    width: 200px;
     /* Set a fixed width or adjust as needed */
 }
 
 .tool {
-    padding: 5px 10px;
-    background-color: #f0f0f0;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  width: 40px; /* Set a fixed width for the tool */
+  height: 30px; /* Set a fixed height for the tool */
+  display: flex; /* Enable Flexbox for centering */
+  align-items: center; /* Vertically center content */
+  justify-content: center; /* Horizontally center content */
+  background-color: #eff2f6; /* Optional background color */
+  cursor: pointer; /* Show a pointer cursor on hover */
 }
 
-.tool:hover {
-    background-color: #ddd;
-    /* Change color on hover */
+.tool img {
+  max-width: 60%; /* Ensure the image scales within the container */
+  max-height: 60%; /* Prevent the image from overflowing */
+  display: block; /* Remove any inline spacing caused by default img behavior */
 }
+.tool:hover{
+    background-color: #d3d3d3;
+}
+
 </style>

@@ -13,7 +13,7 @@
     "windows": [
       {
         "title": "share-app-front",
-        "width": 600,
+        "width": 650,
         "height": 400,
         "decorations": false, 
         "resizable": false,
