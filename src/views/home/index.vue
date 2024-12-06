@@ -25,7 +25,7 @@
   
   const router = useRouter(); // 获取router实例
   onMounted(async () => {
-    router.push("/main");
+    router.push("/resource");
   });
   // 暂无需要使用的逻辑脚本
   </script>

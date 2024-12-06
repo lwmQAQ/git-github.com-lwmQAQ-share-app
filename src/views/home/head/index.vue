@@ -1,19 +1,30 @@
 <template>
     <div class="container" data-tauri-drag-region>
         <!-- 左侧图标 -->
-        <div class="icons"  data-tauri-drag-region>
+        <div class="icons" data-tauri-drag-region>
             <Icon />
         </div>
         <!-- 中间工具区域 -->
         <div class="tool" data-tauri-drag-region>
-            <div class="user"></div>
-            <span >username</span>
-            <span >level</span>
+            <el-dropdown placement="bottom">
+                <div class="user"></div>
+                <template #dropdown>
+                    <el-dropdown-menu>
+                        <el-dropdown-item>The Action 1st</el-dropdown-item>
+                        <el-dropdown-item>The Action 2st</el-dropdown-item>
+                        <el-dropdown-item>The Action 3st</el-dropdown-item>
+                    </el-dropdown-menu>
+                </template>
+            </el-dropdown>
+            <span>username</span>
+            <span>level</span>
         </div>
 
         <!-- 右侧控制区域 -->
         <div class="controller">
-            <div class="tools"><Controller /></div>
+            <div class="tools">
+                <Controller />
+            </div>
         </div>
     </div>
 </template>
@@ -33,6 +44,7 @@ import Icon from '@views/tools/icon/icon.vue'
     right: 0px;
     /* Adjust the distance from the right */
 }
+
 /* 栅格布局 */
 .container {
     display: flex;
@@ -49,6 +61,7 @@ import Icon from '@views/tools/icon/icon.vue'
 .icons {
     margin-left: 20px;
     display: flex;
+    width: 700px;
     /* 使用flex布局 */
     justify-content: flex-start;
     /* 使图标靠左对齐 */
@@ -60,8 +73,8 @@ import Icon from '@views/tools/icon/icon.vue'
 
 /* 工具区域 */
 .tool {
-    align-items: center;             /* 使文本和其他元素竖直居中 */
-    margin-right: 200px;
+    align-items: center;
+    /* 使文本和其他元素竖直居中 */
     display: flex;
     gap: 10px;
     /* 设置两个user之间的间距 */

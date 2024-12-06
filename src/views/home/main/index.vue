@@ -74,6 +74,7 @@
 
 <script setup>
 import { ref } from 'vue';
+const BaseUrl = "http://localhost:1420/resource/:id"
 const groups = ref(["1", "2", "3", "4","1", "2", "3", "4"])
 const all = ref(null);
 // 定义点击回到顶部的函数
