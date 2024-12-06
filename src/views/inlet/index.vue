@@ -22,7 +22,7 @@ onMounted(async () => {
 });
 function createhome() {
   const webview = new WebviewWindow('home', {
-    url: '/home', // 开发环境完整路径
+    url: '/home', 
     width: 1100,   // Set the width of the window
     height: 700,  // Set the height of the window
     decorations: false,
