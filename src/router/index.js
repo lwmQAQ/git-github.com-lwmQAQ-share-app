@@ -4,6 +4,7 @@ import Home from "@views/home/index.vue";
 import Inlet from "@views/inlet/index.vue";
 import Main from '@views/home/main/index.vue';
 import Resource from '@views/home/resource/index.vue';
+import Detials from "../views/home/resource/resource-detials/detials.vue";
 const router = createRouter({
   history: createWebHistory(),
   routes: [
@@ -20,8 +21,12 @@ const router = createRouter({
           component: Main
         },
         {
-          path: '/resource', // Relative path for child route
+          path: '/resource/search', // Relative path for child route
           component: Resource
+        },
+        {
+          path: '/resource/view/:id', // Relative path for child route
+          component: Detials
         }
       ]
     }

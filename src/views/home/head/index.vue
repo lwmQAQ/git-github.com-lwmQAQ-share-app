@@ -93,7 +93,5 @@ import Icon from '@views/tools/icon/icon.vue'
 }
 
 /* 控制区域 */
-.controller {
-    /* 控制区域样式 */
-}
+
 </style>

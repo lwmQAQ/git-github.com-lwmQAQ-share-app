@@ -25,7 +25,7 @@
   
   const router = useRouter(); // 获取router实例
   onMounted(async () => {
-    router.push("/resource");
+    router.push("/resource/view/1");
   });
   // 暂无需要使用的逻辑脚本
   </script>
@@ -55,14 +55,14 @@
   
   .aside {
     grid-area: aside;
-    background-color: #e0e0e0;
+    background-color: #f9fafb;
     padding: 10px;
     overflow: hidden; /* 禁止侧边栏出现滚动条 */
   }
   
   .main {
     grid-area: main;
-    background-color: #fff;
+    background-color: #ffffff;
     padding: 10px;
     overflow-y: auto; /* 仅允许垂直滚动条 */
     height: 650px; /* 保证滚动条正常出现 */
