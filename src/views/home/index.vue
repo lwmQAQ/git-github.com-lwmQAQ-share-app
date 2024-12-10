@@ -25,6 +25,15 @@ import { useRouter } from 'vue-router';
 import { TrayIcon } from '@tauri-apps/api/tray';
 import { Menu } from '@tauri-apps/api/menu';
 import { defaultWindowIcon } from '@tauri-apps/api/app';
+import { listen } from '@tauri-apps/api/event';
+import { h } from 'vue'
+import { ElNotification } from 'element-plus'
+listen('system-message', async (event) => {
+  ElNotification({
+    title: 'Title',
+    message: h('i', { style: 'color: teal' }, 'This is a reminder'),
+  })
+})
 
 function onTrayMenuClick(itemId) {
   console.log(itemId)
@@ -33,7 +42,7 @@ function onTrayMenuClick(itemId) {
 
 const router = useRouter(); // 获取router实例
 onMounted(async () => {
-  router.push("/create");
+  router.push("/chat");
   const menu = await Menu.new({
   items: [
     {
