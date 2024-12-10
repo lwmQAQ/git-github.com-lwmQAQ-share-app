@@ -57,7 +57,7 @@ const onSearch = () => {
     /* 垂直方向布局 */
     gap: 16px;
     height: 650px;
-  
+    overflow-y: auto; /* 如果侧边栏内容超出，也可以滚动 */
     /* 上下间距 */
     margin: 0 auto;
 }

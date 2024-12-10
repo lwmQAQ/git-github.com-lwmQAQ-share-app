@@ -5,6 +5,7 @@
             <Detials/>
         </div>
     </div>
+    
 </template>
 
 <script setup>
@@ -17,5 +18,8 @@ import Detials from './comment-detials.vue';
     display: flex;
     flex-direction: column;  /* 竖直排列子元素 */
     gap: 10px;  /* 设置子元素之间的间距 */
+}
+.user-reply{
+    margin-left: 50px;
 }
 </style>

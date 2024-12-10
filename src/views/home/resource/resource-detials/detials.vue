@@ -81,6 +81,7 @@ function CommentOpen(){
     padding: 20px;
     height: 650px;
     font-family: Arial, sans-serif;
+    overflow-y: auto; /* 如果侧边栏内容超出，也可以滚动 */
 }
 
 .card {
