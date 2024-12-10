@@ -5,14 +5,18 @@ import Inlet from "@views/inlet/index.vue";
 import Main from '@views/home/main/index.vue';
 import Resource from '@views/home/resource/index.vue';
 import Detials from "../views/home/resource/resource-detials/detials.vue";
-import create from "../views/home/create/create.vue";
 import Create from "../views/home/create/create.vue";
+import Person from "../views/home/person/person.vue";
 const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
       path: '/',
       component: Inlet
+    },
+    {
+      path:'/person',
+      component: Person
     },
     {
       path: '/home',

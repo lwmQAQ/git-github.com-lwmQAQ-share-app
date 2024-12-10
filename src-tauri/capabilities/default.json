@@ -2,10 +2,11 @@
   "$schema": "../gen/schemas/desktop-schema.json",
   "identifier": "default",
   "description": "Capability for the main window",
-  "windows": ["main","home"],
+  "windows": ["main","home","person"],
   "permissions": [
     "core:default",
     "shell:allow-open",
+    "core:app:allow-default-window-icon",
     "core:window:allow-get-all-windows",
     "core:window:allow-set-decorations",
     "core:window:allow-set-fullscreen",

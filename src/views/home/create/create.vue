@@ -28,7 +28,7 @@
                 toolbar_mode: 'sliding',
                 plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
                 toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
-            }" initial-value="编辑资源内容" />
+            }" :initial-value="content" />
         </div>
     </div>
 </template>
@@ -36,7 +36,7 @@
 import Editor from '@tinymce/tinymce-vue'
 import Tag from './tag-create.vue' 
 import { ref } from 'vue'
-
+const content = ref("test")
 const radio = ref(1)
 </script>
 
@@ -53,6 +53,7 @@ const radio = ref(1)
 }
 
 .main {
+    margin-bottom: 20px;
     height: 150px;
     /* 固定高度 */
     background-color: #f9f9f9;
