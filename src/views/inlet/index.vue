@@ -13,13 +13,25 @@ import { onMounted } from "vue";
 
 import { WebviewWindow } from '@tauri-apps/api/webviewWindow'
 import { getCurrentWindow } from "@tauri-apps/api/window";
+import { listen } from '@tauri-apps/api/event';
+
+//初始化
 onMounted(async () => {
   const token = localStorage.getItem('token'); // or sessionStorage.getItem('token') if stored in sessionStorage
-  if (!token) {
+  if (token) {
+    console.log(1)
     createhome(); // assuming this is a function that creates a home page or redirects
     await getCurrentWindow().close()
   }
 });
+
+//事件监听
+listen('login-succss', async () => {
+  console.log(1)
+  createhome()
+  await getCurrentWindow().close()
+})
+
 function createhome() {
   const webview = new WebviewWindow('home', {
     url: '/home', 

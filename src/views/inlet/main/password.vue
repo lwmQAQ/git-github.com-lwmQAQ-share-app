@@ -1,15 +1,15 @@
 <template>
     <div class="login">
         <div class="username">
-            <el-input v-model="username" size="large" style="width: 280px" placeholder="邮箱" :prefix-icon="User" />
+            <el-input v-model="loginresp.email" size="large" style="width: 280px" placeholder="邮箱" :prefix-icon="User" />
         </div>
         <div class="password">
-            <el-input v-model="username" size="large" style="width:280px" placeholder="请输入密码" :prefix-icon="Lock"
+            <el-input v-model="loginresp.password" size="large" style="width:280px" placeholder="请输入密码" :prefix-icon="Lock"
                 type="password" />
         </div>
         <div class="tools">
-            <el-checkbox v-model="checked3" label="记住密码" />
-            <el-checkbox v-model="checked4" label="自动登录" />
+            <el-checkbox v-model="loginresp.isSave" label="记住密码" />
+            <el-checkbox v-model="loginresp.isAuto" label="自动登录" />
             <a href="#" class="app-link" target="_blank">忘记密码?</a>
         </div>
     </div>
@@ -17,10 +17,16 @@
 
 <script setup>
 import { User, Lock } from '@element-plus/icons-vue'
-import { ref } from 'vue';
-const username = ref("")
-const checked3 = ref(false)
-const checked4 = ref(false)
+
+
+defineProps({
+  loginresp: {
+    type: Object,
+    required: true,
+  },
+});
+
+
 </script>
 
 <style scoped>
