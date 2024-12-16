@@ -58,7 +58,7 @@ const loginresp = ref({
 
 const linktips = ref("")
 onMounted(() => {
-    change()
+    Change()
     loginresp.value.password = localStorage.getItem("password")
     loginresp.value.email =localStorage.getItem("email")
 })
@@ -72,35 +72,36 @@ async function login() {
             email: loginresp.value.email,
             password: encryptedPassword,
         }
-        post('/v1/public/login', loginreq)
-            .then((response) => {
+        
+        post('/v1/api/public/login', loginreq)
+            .then(async (response) => {
                 if (response.code !== 200) {
                     ElMessage.error(response.errorMessage);
                 } else {
                     const token = response.data.token;
                     const id = response.data.id;
-
                     if (loginresp.value.isAuto) {
-                        localStorage.setItem('setToken', token);  // 正确地分发 'setToken' action
-                        localStorage.setItem('setId', id);  // 使用 'dispatch' 方法
-                    } else {
-                        console.error('Vuex store 未初始化');
-                    }
+                        console.log(token)
+                        localStorage.setItem('token', token);  // 正确地分发 'setToken' action
+                        localStorage.setItem('id', id);  // 使用 'dispatch' 方法
+                    } 
                     if (loginresp.value.isSave){
                         localStorage.setItem('email', loginresp.value.email); 
                         localStorage.setItem('password', loginresp.value.password); 
                     }
                     ElMessage.success("登录成功");   
+                    await emitTo('main', 'login-succss');
                 }
             })
             .catch((error) => {
                 console.error('Error submitting form:', error);
             });
     }
-    await emitTo('main', 'login-succss');
+   
+
 }
 
-function change() {
+function Change() {
     if (type.value) {
         tips.value = passtips
         linktips.value = emailtios

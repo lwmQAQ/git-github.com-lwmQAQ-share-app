@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-
     <Head data-tauri-drag-region style="width: 100%;"></Head>
     <Main></Main>
   </div>
@@ -18,8 +17,8 @@ import { listen } from '@tauri-apps/api/event';
 //初始化
 onMounted(async () => {
   const token = localStorage.getItem('token'); // or sessionStorage.getItem('token') if stored in sessionStorage
+  console.log(token)
   if (token) {
-    console.log(1)
     createhome(); // assuming this is a function that creates a home page or redirects
     await getCurrentWindow().close()
   }
@@ -27,9 +26,14 @@ onMounted(async () => {
 
 //事件监听
 listen('login-succss', async () => {
-  console.log(1)
-  createhome()
-  await getCurrentWindow().close()
+  try {
+    createhome();
+    setTimeout(async () => {
+      await getCurrentWindow().close();
+    }, 1000); // 1000 毫秒，即 1 秒
+  } catch (error) {
+    console.error('Error during event handling:', error);
+  }
 })
 
 function createhome() {

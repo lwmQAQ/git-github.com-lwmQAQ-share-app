@@ -12,7 +12,7 @@
                     <el-dropdown-menu>
                         <el-dropdown-item>The Action 1st</el-dropdown-item>
                         <el-dropdown-item>The Action 2st</el-dropdown-item>
-                        <el-dropdown-item>The Action 3st</el-dropdown-item>
+                        <el-dropdown-item @click="logout()">login out</el-dropdown-item>
                     </el-dropdown-menu>
                 </template>
             </el-dropdown>
@@ -30,8 +30,13 @@
 </template>
 
 <script setup>
+import { getCurrentWindow } from '@tauri-apps/api/window';
 import Controller from '@views/tools/controller/controller.vue'
 import Icon from '@views/tools/icon/icon.vue'
+async function logout(){
+    localStorage.removeItem('token');  // 例如 'token' 或其他
+    await getCurrentWindow().close()
+}
 </script>
 
 <style scoped>
