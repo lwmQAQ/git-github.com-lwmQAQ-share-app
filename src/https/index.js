@@ -1,12 +1,12 @@
 // 创建 axios 实例
 import axios from 'axios';
 
-const testurl = 'http://10.61.145.84:8080';
+const testurl = 'http://10.62.37.21:8080';
 const useurl = 'http://121.37.228.161:8080';
 // 创建 axios 实例
 const instance = axios.create({
-  baseURL:  useurl, // 基础URL
-  timeout: 10000, // 请求超时时间
+  baseURL:  testurl, // 基础URL
+  timeout: 3000, // 请求超时时间
 });
 
 // 请求拦截器
